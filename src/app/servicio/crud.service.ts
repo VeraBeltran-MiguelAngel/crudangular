@@ -51,4 +51,16 @@ export class CrudService {
     //para borrar datos en el api (http://localhost/empleados/borrar)
     return this.clienteHttp.get(this.API + '?consultar='+id);
   }
+
+  /**
+   * Editar un empleado por id
+   * @param id 
+   * @param datosEmpleado datos nuevos del registro
+   * @returns 
+   */
+  EditarEmpleado(id:any,datosEmpleado:any):Observable<any> {
+    //para actualizar datos
+    return this.clienteHttp.post(this.API + '?actualizar='+id,datosEmpleado);
+  }
+
 }

@@ -20,7 +20,8 @@ export class EditarEmpleadoComponent {
   constructor(
     private activeRoute: ActivatedRoute,
     private crudService: CrudService,
-    public formulario: FormBuilder
+    public formulario: FormBuilder,
+    private ruteador: Router
   ) {
     //recuperar el id , de la liga capturas el parametro id
     this.elID = this.activeRoute.snapshot.paramMap.get('id');
@@ -30,11 +31,11 @@ export class EditarEmpleadoComponent {
       console.log(respuesta);
       //asignar los valores que vienen de la respuesta en el formulario editar
       this.formularioEmpleados.setValue({
-        //estos dos datos se asignan al formulario para que tengan esos valores 
+        //estos dos datos se asignan al formulario para que tengan esos valores
         //valor 0 que viene de la API
-        nombre:respuesta[0]['nombre'], 
+        nombre: respuesta[0]['nombre'],
         //valor 0 que viene de la API
-        correo:respuesta[0]['correo']
+        correo: respuesta[0]['correo'],
       });
     });
     this.formularioEmpleados = this.formulario.group({
@@ -52,8 +53,14 @@ export class EditarEmpleadoComponent {
   /**
    * metodo que envia los datos ya modificados
    */
-  enviarDatos():any{
+  enviarDatos(): any {
     console.log(this.elID);
     console.log(this.formularioEmpleados.value);
+    //enviamos el id del empleado y sus nuevos datos desde el formulario
+    this.crudService
+      .EditarEmpleado(this.elID, this.formularioEmpleados.value)
+      .subscribe(() => {
+        this.ruteador.navigateByUrl('/listar-empleado'); //una vez actualizados los datos nos lleva a la lista
+      });
   }
 }
