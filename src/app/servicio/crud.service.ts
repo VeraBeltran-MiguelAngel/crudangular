@@ -15,7 +15,7 @@ export class CrudService {
   constructor(private clienteHttp: HttpClient) {}
 
   AgregarEmpleado(datosEmpleado: Empleado): Observable<any> {
-    //para insertar datos en el api
+    //para insertar datos en el api (http://localhost/empleados/insertar)
     return this.clienteHttp.post(this.API + '?insertar=1', datosEmpleado);
   }
 

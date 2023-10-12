@@ -8,7 +8,7 @@ import { CrudService } from 'src/app/servicio/crud.service';
 })
 export class ListarEmpleadoComponent {
 
-  //datos de empleados
+  //datos de empleados json que va al html
   Empleados:any;
 
   constructor(private crudService:CrudService){}
@@ -17,6 +17,8 @@ export class ListarEmpleadoComponent {
     //listar empleados , el subscribe trae una respuesta y hay que imprimirla
     this.crudService.ObtenerEmpleados().subscribe(respuesta => {
       console.log(respuesta);
+      //colcamosel json de la respuesta en empleados
+      this.Empleados = respuesta;
     });
     
   }

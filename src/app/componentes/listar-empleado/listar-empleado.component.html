@@ -12,11 +12,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="">
-            <td>9</td>
-            <td>Juan perez</td>
-            <td>juan@gmail.com</td>
-            <td><a routerLink="/editar-empleado/1">Editar</a>| Borrar</td>
+          <!--recorrer el json de empleados-->
+          <tr *ngFor="let itemEmp of Empleados; let iControl=index">
+            <td>{{itemEmp.id}}</td>
+            <td>{{itemEmp.nombre}}</td>
+            <td>{{itemEmp.correo}}</td>
+            <td><a routerLink="/editar-empleado/{{itemEmp.id}}">Editar</a>| Borrar</td>
           </tr>
         </tbody>
       </table>
