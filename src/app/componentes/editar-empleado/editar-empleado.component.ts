@@ -48,4 +48,12 @@ export class EditarEmpleadoComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
   }
+
+  /**
+   * metodo que envia los datos ya modificados
+   */
+  enviarDatos():any{
+    console.log(this.elID);
+    console.log(this.formularioEmpleados.value);
+  }
 }
