@@ -6,6 +6,11 @@ import { CrudService } from 'src/app/servicio/crud.service';
   templateUrl: './listar-empleado.component.html',
   styleUrls: ['./listar-empleado.component.css'],
 })
+
+/**
+ * Esta clase interactua con el html
+ * por eso puedes eliminar filas de la tabla al eliminar registros de la BD
+ */
 export class ListarEmpleadoComponent {
   //datos de empleados json que va al html
   Empleados: any;
@@ -28,6 +33,11 @@ export class ListarEmpleadoComponent {
   borrarRegistro(id: any, iControl: any) {
     console.log(id);
     console.log(iControl);
-
+    if(window.confirm("Desea borrar el registro?")){
+      this.crudService.BorrarEmpleado(id).subscribe((respuesta) => {
+        //la fila que seleciones elimina el primer elemento
+        this.Empleados.splice(iControl, 1);
+      });
+    }
   }
 }
