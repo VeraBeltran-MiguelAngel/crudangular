@@ -1,13 +1,14 @@
 <div class="card">
   <div class="card-header">Agregar empleado</div>
   <div class="card-body">
-    <form (ngSubmit)="enviarDatos()">
+    <form [formGroup]="formularioEmpleados" (ngSubmit)="enviarDatos()">
       <div class="mb-3">
         <label for="" class="form-label">Nombre:</label>
         <input
           type="text"
           class="form-control"
           name=""
+          formControlName="nombre"
           id=""
           aria-describedby="helpId"
           placeholder="Escribe tu nombre"
@@ -20,16 +21,19 @@
           type="email"
           class="form-control"
           name=""
+          formControlName="correo"
           id=""
           aria-describedby="helpId"
           placeholder="Escribe tu correo"
         />
-        <small id="helpId" class="form-text text-muted">correo de empleado</small>
+        <small id="helpId" class="form-text text-muted"
+          >correo de empleado</small
+        >
       </div>
 
       <div class="btn-group" role="group" aria-label="Button group name">
         <button type="submit" class="btn btn-success">Agregar</button>
-        
+
         <button type="button" class="btn btn-danger">Cancelar</button>
       </div>
     </form>
