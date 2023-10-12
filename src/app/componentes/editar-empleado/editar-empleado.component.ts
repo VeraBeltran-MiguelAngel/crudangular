@@ -15,10 +15,17 @@ export class EditarEmpleadoComponent {
   //recibimos el id del usuario a editar
   elID: any;
 
-  constructor(private activeRoute: ActivatedRoute) {
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private crudService: CrudService
+  ) {
     //recuperar el id , de la liga capturas el parametro id
     this.elID = this.activeRoute.snapshot.paramMap.get('id');
     console.log(this.elID);
+    this.crudService.ObtenerEmpleado(this.elID).subscribe(respuesta =>{
+      //mostramos los datos que vienen de la solicitud
+      console.log(respuesta);
+    });
   }
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.

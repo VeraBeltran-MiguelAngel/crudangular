@@ -41,4 +41,14 @@ export class CrudService {
     //para borrar datos en el api (http://localhost/empleados/borrar)
     return this.clienteHttp.get(this.API + '?borrar='+id);
   }
+
+  /**
+   * Metodo para mostrar los datos de un empleado por id
+   * @param id 
+   * @returns 
+   */
+  ObtenerEmpleado(id:any): Observable<any> {
+    //para borrar datos en el api (http://localhost/empleados/borrar)
+    return this.clienteHttp.get(this.API + '?consultar='+id);
+  }
 }
