@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 //recibir datos del formulario
 import { FormGroup, FormBuilder } from '@angular/forms';
+//llamar al servicio creado
+import { CrudService } from 'src/app/servicio/crud.service';
 
 @Component({
   selector: 'app-agregar-empleado',
@@ -15,7 +17,10 @@ export class AgregarEmpleadoComponent {
   formularioEmpleados: FormGroup;
 
   //usar el builder en el constructor (para recibir los datos)
-  constructor(public formulario: FormBuilder) {
+  constructor(
+    public formulario: FormBuilder,
+    private crudService: CrudService
+  ) {
     //usar los datos del formulario para almacenarlos/procesarlos los recibe en froma de grupo
     this.formularioEmpleados = this.formulario.group({
       //deben coincidir con los nombres de los controles
@@ -34,5 +39,7 @@ export class AgregarEmpleadoComponent {
     console.log('Hiciste clic en agregar');
     //imprime los datos recibidos del formulario
     console.log(this.formularioEmpleados.value);
+    //pasar los datos del formulario al metodo (sin subscribe no se ejecuta)
+    this.crudService.AgregarEmpleado(this.formularioEmpleados.value).subscribe();
   }
 }

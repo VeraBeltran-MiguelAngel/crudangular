@@ -11,7 +11,7 @@ import { Empleado } from './Empleado';
 })
 export class CrudService {
   //variable que guarda el endpoint url
-  API: string = 'http://localhost/empleados';
+  API: string = 'http://localhost/empleados/';
   constructor(private clienteHttp: HttpClient) {}
 
   AgregarEmpleado(datosEmpleado: Empleado): Observable<any> {
