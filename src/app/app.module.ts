@@ -7,6 +7,11 @@ import { AgregarEmpleadoComponent } from './componentes/agregar-empleado/agregar
 import { EditarEmpleadoComponent } from './componentes/editar-empleado/editar-empleado.component';
 import { ListarEmpleadoComponent } from './componentes/listar-empleado/listar-empleado.component';
 
+//para gestionar los fromularios de forma reactiva
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+//para trabajar con las interacciones entre la api de php
+import {HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +21,10 @@ import { ListarEmpleadoComponent } from './componentes/listar-empleado/listar-em
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,    //siempre agregar las librerias aqui
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
