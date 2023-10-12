@@ -13,11 +13,19 @@
         </thead>
         <tbody>
           <!--recorrer el json de empleados-->
-          <tr *ngFor="let itemEmp of Empleados; let iControl=index">
-            <td>{{itemEmp.id}}</td>
-            <td>{{itemEmp.nombre}}</td>
-            <td>{{itemEmp.correo}}</td>
-            <td><a routerLink="/editar-empleado/{{itemEmp.id}}">Editar</a>| Borrar</td>
+          <tr *ngFor="let itemEmp of Empleados; let iControl = index">
+            <td>{{ itemEmp.id }}</td>
+            <td>{{ itemEmp.nombre }}</td>
+            <td>{{ itemEmp.correo }}</td>
+            <td>
+              <a
+                class="btn btn-info"
+                routerLink="/editar-empleado/{{ itemEmp.id }}"
+                >Editar</a
+              > |
+              <!--el primer id es para borrar el registro en la BD el segundo para eliminar la fila de la vista tabla-->
+              <a class="btn btn-danger" (click)="borrarRegistro(itemEmp.id,iControl)" role="button">Borrar</a>
+            </td>
           </tr>
         </tbody>
       </table>

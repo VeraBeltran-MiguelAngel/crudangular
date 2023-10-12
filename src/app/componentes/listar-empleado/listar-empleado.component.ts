@@ -4,22 +4,30 @@ import { CrudService } from 'src/app/servicio/crud.service';
 @Component({
   selector: 'app-listar-empleado',
   templateUrl: './listar-empleado.component.html',
-  styleUrls: ['./listar-empleado.component.css']
+  styleUrls: ['./listar-empleado.component.css'],
 })
 export class ListarEmpleadoComponent {
-
   //datos de empleados json que va al html
-  Empleados:any;
+  Empleados: any;
 
-  constructor(private crudService:CrudService){}
+  constructor(private crudService: CrudService) {}
 
   ngOnInit(): void {
     //listar empleados , el subscribe trae una respuesta y hay que imprimirla
-    this.crudService.ObtenerEmpleados().subscribe(respuesta => {
+    this.crudService.ObtenerEmpleados().subscribe((respuesta) => {
       console.log(respuesta);
       //colcamosel json de la respuesta en empleados
       this.Empleados = respuesta;
     });
-    
+  }
+  /**
+   * Metodo para borrar registros de la BD
+   * @param id  BD
+   * @param iControl  borra fila de Tabla html
+   */
+  borrarRegistro(id: any, iControl: any) {
+    console.log(id);
+    console.log(iControl);
+
   }
 }
