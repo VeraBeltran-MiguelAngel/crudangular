@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CrudService } from 'src/app/servicio/crud.service';
 
 @Component({
   selector: 'app-listar-empleado',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class ListarEmpleadoComponent {
 
+  //datos de empleados
+  Empleados:any;
+
+  constructor(private crudService:CrudService){}
+
+  ngOnInit(): void {
+    //listar empleados , el subscribe trae una respuesta y hay que imprimirla
+    this.crudService.ObtenerEmpleados().subscribe(respuesta => {
+      console.log(respuesta);
+    });
+    
+  }
 }

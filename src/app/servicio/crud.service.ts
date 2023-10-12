@@ -11,11 +11,15 @@ import { Empleado } from './Empleado';
 })
 export class CrudService {
   //variable que guarda el endpoint url
-  API: string = 'http://localhost/empleados/';
+  API: string = 'http://localhost/empleados/'; //api de PHP crudo
   constructor(private clienteHttp: HttpClient) {}
 
   AgregarEmpleado(datosEmpleado: Empleado): Observable<any> {
     //para insertar datos en el api
     return this.clienteHttp.post(this.API + '?insertar=1', datosEmpleado);
+  }
+
+  ObtenerEmpleados(){
+    return this.clienteHttp.get(this.API);
   }
 }
