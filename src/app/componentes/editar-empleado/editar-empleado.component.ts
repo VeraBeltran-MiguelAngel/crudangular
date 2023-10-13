@@ -8,8 +8,7 @@ import { CrudService } from 'src/app/servicio/crud.service';
 
 @Component({
   selector: 'app-editar-empleado',
-  templateUrl: './editar-empleado.component.html',
-  styleUrls: ['./editar-empleado.component.css'],
+  templateUrl: './editar-empleado.component.html'
 })
 export class EditarEmpleadoComponent {
   //recuperar el formulario (tienes todos los datos que llegan directamente del formulario)

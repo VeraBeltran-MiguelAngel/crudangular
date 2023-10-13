@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-empleado',
-  templateUrl: './agregar-empleado.component.html',
-  styleUrls: ['./agregar-empleado.component.css'],
+  templateUrl: './agregar-empleado.component.html'
 })
 /**
  * Recepciona los datos o los maneja del propio html 'agregar-empleado'

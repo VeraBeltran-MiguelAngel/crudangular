@@ -3,8 +3,7 @@ import { CrudService } from 'src/app/servicio/crud.service';
 
 @Component({
   selector: 'app-listar-empleado',
-  templateUrl: './listar-empleado.component.html',
-  styleUrls: ['./listar-empleado.component.css'],
+  templateUrl: './listar-empleado.component.html'
 })
 
 /**
