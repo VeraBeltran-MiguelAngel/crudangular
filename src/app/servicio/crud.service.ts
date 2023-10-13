@@ -11,7 +11,7 @@ import { Empleado } from './Empleado';
 })
 export class CrudService {
   //variable que guarda el endpoint url
-  API: string = 'https://olympus.arvispace.com/empleados/'; //api de PHP crudo
+  API: string = 'http://localhost/holamundo/api/empleados'; //api de PHP crudo
   constructor(private clienteHttp: HttpClient) {}
 
   /**
