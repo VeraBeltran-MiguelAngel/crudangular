@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { CrudService } from 'src/app/servicio/crud.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { CrudService } from 'src/app/servicio/crud.service';
  * Esta clase interactua con el html
  * por eso puedes eliminar filas de la tabla al eliminar registros de la BD
  */
-export class ListarEmpleadoComponent {
+export class ListarEmpleadoComponent implements OnInit{
   //datos de empleados json que va al html
   Empleados: any;
 

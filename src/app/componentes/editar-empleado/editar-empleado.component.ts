@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 //para obtener el id de la ruta
 import { Router, ActivatedRoute } from '@angular/router';
 //recibir datos del formulario
@@ -10,7 +10,7 @@ import { CrudService } from 'src/app/servicio/crud.service';
   selector: 'app-editar-empleado',
   templateUrl: './editar-empleado.component.html'
 })
-export class EditarEmpleadoComponent {
+export class EditarEmpleadoComponent implements OnInit{
   //recuperar el formulario (tienes todos los datos que llegan directamente del formulario)
   formularioEmpleados: FormGroup;
   //recibimos el id del usuario a editar

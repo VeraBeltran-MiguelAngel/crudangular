@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 //recibir datos del formulario
 import { FormGroup, FormBuilder } from '@angular/forms';
 //llamar al servicio creado
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 /**
  * Recepciona los datos o los maneja del propio html 'agregar-empleado'
  */
-export class AgregarEmpleadoComponent {
+export class AgregarEmpleadoComponent implements OnInit{
   //recuperar el formulario (tienes todos los datos que llegan directamente del formulario)
   formularioEmpleados: FormGroup;
 

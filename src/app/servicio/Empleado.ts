@@ -3,4 +3,6 @@ export class Empleado {
   id!: String;
   nombre!: String;
   correo!: String;
+  activo!: boolean;
+  rango!: number;
 }

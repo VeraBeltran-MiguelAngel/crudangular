@@ -21,46 +21,45 @@ export class CrudService {
    */
   AgregarEmpleado(datosEmpleado: Empleado): Observable<any> {
     //para insertar datos en el api (http://localhost/empleados/insertar)
-    return this.clienteHttp.post(this.API + '?insertar=1', datosEmpleado);
+    return this.clienteHttp.post(this.API, datosEmpleado);
   }
 
   /**
    * Metodo para listar empleados
    * @returns te dirige al url del api http://localhost/empleados/ y por defecto lanza un select*from empleados
    */
-  ObtenerEmpleados(){
+  ObtenerEmpleados() {
     return this.clienteHttp.get(this.API);
   }
 
   /**
    * Eliminar empleado
    * @param id parametro que se le pasa al API al metoto borrar
-   * @returns 
+   * @returns
    */
-  BorrarEmpleado(id:any): Observable<any> {
+  BorrarEmpleado(id: any): Observable<any> {
     //para borrar datos en el api (http://localhost/empleados/borrar)
-    return this.clienteHttp.get(this.API + '?borrar='+id);
+    return this.clienteHttp.get(this.API + '?borrar=' + id);
   }
 
   /**
    * Metodo para mostrar los datos de un empleado por id
-   * @param id 
-   * @returns 
+   * @param id
+   * @returns
    */
-  ObtenerEmpleado(id:any): Observable<any> {
+  ObtenerEmpleado(id: any): Observable<any> {
     //para borrar datos en el api (http://localhost/empleados/borrar)
-    return this.clienteHttp.get(this.API + '?consultar='+id);
+    return this.clienteHttp.get(this.API + '?consultar=' + id);
   }
 
   /**
    * Editar un empleado por id
-   * @param id 
+   * @param id
    * @param datosEmpleado datos nuevos del registro
-   * @returns 
+   * @returns
    */
-  EditarEmpleado(id:any,datosEmpleado:any):Observable<any> {
+  EditarEmpleado(id: any, datosEmpleado: any): Observable<any> {
     //para actualizar datos
-    return this.clienteHttp.post(this.API + '?actualizar='+id,datosEmpleado);
+    return this.clienteHttp.post(this.API + '?actualizar=' + id, datosEmpleado);
   }
-
 }
