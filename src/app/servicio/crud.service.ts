@@ -38,18 +38,20 @@ export class CrudService {
    * @returns
    */
   BorrarEmpleado(id: any): Observable<any> {
-    //para borrar datos en el api (http://localhost/empleados/borrar)
+    //para borrar datos en el api (http://localhost/holamundo/api/empleados/id)
     return this.clienteHttp.get(this.API + '?borrar=' + id);
   }
 
   /**
    * Metodo para mostrar los datos de un empleado por id
+   * se puede usar para actualizar valores cuando das clic en editar te 
+   * lleva a un fromulario donde obtinene los valores del registro
    * @param id
    * @returns
    */
   ObtenerEmpleado(id: any): Observable<any> {
-    //para borrar datos en el api (http://localhost/empleados/borrar)
-    return this.clienteHttp.get(this.API + '?consultar=' + id);
+    //para borrar datos en el api (http://localhost/holamundo/api/empleados/id)
+    return this.clienteHttp.get(this.API + '/' + id);
   }
 
   /**
@@ -60,6 +62,6 @@ export class CrudService {
    */
   EditarEmpleado(id: any, datosEmpleado: any): Observable<any> {
     //para actualizar datos
-    return this.clienteHttp.post(this.API + '?actualizar=' + id, datosEmpleado);
+    return this.clienteHttp.patch(this.API + '/' + id, datosEmpleado);
   }
 }

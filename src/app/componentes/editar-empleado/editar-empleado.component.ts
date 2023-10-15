@@ -31,10 +31,12 @@ export class EditarEmpleadoComponent implements OnInit{
       //asignar los valores que vienen de la respuesta en el formulario editar
       this.formularioEmpleados.setValue({
         //estos dos datos se asignan al formulario para que tengan esos valores
+        //valor 0 que viene de la API(en la original devuelve un jsonc encode que viene con un argumento 0 por eso aqui ya no lo lleva)
+        //antes nombre: respuesta[0]['nombre'],
+        // antes correo: respuesta[0]['correo'],
+        nombre: respuesta['nombre'],
         //valor 0 que viene de la API
-        nombre: respuesta[0]['nombre'],
-        //valor 0 que viene de la API
-        correo: respuesta[0]['correo'],
+        correo: respuesta['correo'],
       });
     });
     this.formularioEmpleados = this.formulario.group({
