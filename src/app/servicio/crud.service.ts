@@ -39,7 +39,7 @@ export class CrudService {
    */
   BorrarEmpleado(id: any): Observable<any> {
     //para borrar datos en el api (http://localhost/holamundo/api/empleados/id)
-    return this.clienteHttp.get(this.API + '?borrar=' + id);
+    return this.clienteHttp.delete(this.API + '/' + id);
   }
 
   /**
